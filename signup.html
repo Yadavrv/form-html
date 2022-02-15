@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2 class="h2"> LOGIN </h2>
+                    <form action="">
+                        <input type="email" name="" id="" class="input-box" placeholder="Enter your Email" required>
+                        <input type="password" name="" id="" class="input-box" placeholder="Enter your password">
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <input type="checkbox" name="" id=""><span>Remember me</span>
+                    </form>
+                    <button type="button" class="btn" onclick="openRegister()">I'm new Here.</button>
+                    <a href="##">Forgot password</a>
+                </div>
+                <div class="card-back">
+                    <h2> REGISTER HERE </h2>
+                    <form name="jsform"  action="" onsubmit="return jsvalidation()" method="post">
+
+                        <p>Name:</p>
+                        <input type="text" name="Name" class="input-box" placeholder="Enter your name.">
+                        <br>
+                        
+                         <p>E-mail Address:</p>
+                        <input type="text" name="EMail" class="input-box" placeholder="Enter your Email.">
+                        <br>
+                        <p>Password:</p>
+                        <input type="password" name="pass1" placeholder="Create Password."><br>
+                        <input type="password" name="pass2" placeholder="Confirm your password.">
+                        <br>
+                        <p>Telephone:</p>
+                        <input type="text" name="mob" class="input-box" placeholder="Enter your mobile no.">
+                        
+                        <p>Select Gender:</p>
+                        <select type="text" value="" name="Gender" >
+                            <option>MALE</option>
+                            <option>FEMALE</option>
+                            <option>OTHER</option>
+                        </select>
+                        <button type="submit" class="submit-btn">Register</button>
+                        <input type="checkbox" name=""><span>Remember me</span>
+                    </form>
+                    <button type="button" class="btn" onclick="openLogin()">I have an account.</button>
+                    <a href="##">Forgot password</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        /* For Card effect*/
+        var card = document.getElementById("card")
+        function openRegister(){
+            card.style.transform ="rotateY(-180deg)"
+        }
+        function openLogin(){
+            card.style.transform ="rotateY(0deg)"
+        }
+
+
+
+        /* Validation of input fields */
+        function jsvalidation() {
+            var name = document.jsform.Name.value
+            var mobile = document.jsform.mob.value
+            var p1 = document.jsform.pass1.value
+            var p2 = document.jsform.pass2.value
+            var Gen = document.jsform.Gender.value
+            var letter = /^[A-Za-z]*$/;
+        
+            if (name == "") {                /*Name Field Validation*/
+                alert("Name field should not be blank")
+                return false;
+            }
+            else if(name.length<3 || name.length>30)
+            {
+                alert("Name should be 3 and less then 30 characters")
+                return false
+            }
+            else if (!name.match(letter)){
+                alert("This field should contain only letters")
+                return false;
+            }
+        
+        
+            else if (isNaN(mobile)) {              /*Mobile Field Validation*/
+                alert("Enter numeric vale only")
+                return false;
+            }
+        
+            else if (mobile.length < 10) {
+                document.getElementById("rvi").innerHTML = "*Mobile number must have 10 digits.";
+                return false;
+            }
+        
+        
+        
+            else if (p1 != p2) {            /*Password Field Validation*/
+                alert("Password should be same as above")
+                return false;
+            }  
+            else if (p1.length < 8) {
+                alert(" Password should be atleast 8 characters")
+                return false;
+            }
+        
+            else if (Gen == "") {                /*City Field Validation*/
+                alert("Please select your city.");
+                return false;
+            }
+        
+        
+        }
+    </script>
+  
+
+
+</body>
+
+</html>
